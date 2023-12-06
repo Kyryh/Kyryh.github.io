@@ -11,6 +11,8 @@ function add_value(num) {
         output.value = ""
         is_result = false
     }
+    if ((output.value+num).length >= 13)
+        return;
     output.value += num
 }
 
@@ -39,7 +41,11 @@ function calculate() {
         return
     if (output.value === "")
         to_eval = to_eval.substring(0, to_eval.length-1)
-    output.value = eval(to_eval + output.value)
+    result = eval(to_eval + output.value)
+    if (result.toString().length >= 12) {
+        result = result.toExponential(7);
+    }
+    output.value = result
     to_eval = ""
     is_result = true
 }
