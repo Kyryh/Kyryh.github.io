@@ -42,7 +42,7 @@ function calculate() {
     if (output.value === "")
         to_eval = to_eval.substring(0, to_eval.length-1)
     result = eval(to_eval + output.value)
-    if (result.toString().length >= 12) {
+    if (result.toString().length >= 13) {
         result = result.toExponential(7);
     }
     output.value = result
