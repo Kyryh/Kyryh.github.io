@@ -5,14 +5,17 @@
     <script>
         function update_lang_json(file) {
             if (file === undefined) return;
-            alert(file.name)
 
             var fr = new FileReader();
 
             fr.onload = function(e) {
                 var json_string = e.target.result;
-                var sub = json_string.indexOf("}", json_string.indexOf('"subtitles_sisyphusPrime_defeated5":'))
-                var additionalData = `
+                var i1 = json_string.indexOf('"subtitles_sisyphusPrime_defeated5"')
+                var i2 = json_string.indexOf("\"", i1+35)
+                var i3 = json_string.indexOf("\"", i2+1)+1
+                //var i3 = json_string.indexOf("\"", 
+                var additionalData = `,
+
             "subtitles_v2_jumpscare_1": "",
             "subtitles_v2_jumpscare_2": "",
 
@@ -54,9 +57,8 @@
             "subtitles_v2Second_fleeing2_1": "",
             "subtitles_v2Second_fleeing2_2": "",
 
-            "subtitles_v2Second_death": ""
-        `
-                var new_json = json_string.substring(0, sub) + additionalData + json_string.substring(sub,json_string.length);
+            "subtitles_v2Second_death": ""`
+                var new_json = json_string.substring(0, i3) + additionalData + json_string.substring(i3,json_string.length);
                 
                 var download_file = document.getElementById("download_file");
                 download_file.setAttribute("href", window.URL.createObjectURL(new Blob([new_json], {type: "application/json"})));
