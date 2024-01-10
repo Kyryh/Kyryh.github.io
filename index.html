@@ -11,25 +11,11 @@
     <br>
     <table>
         <tr>
-            <td colspan="4">
-                <textarea id="calcolatrice_output" cols="10" rows="1" readonly placeholder="0"></textarea>
+            <td colspan="5">
+                <textarea id="calcolatrice_output" cols="15" rows="1" readonly placeholder="0"></textarea>
             </td>
         </tr>
-        <tr>
-            <td>
-                <button class="canc" onclick="reset()">C</button>
-            </td>
-            <td>
-                <button class="canc" onclick="del()">&#x25C0;</button>
-            </td>
-            <td>
-                <button class="op" onclick="alert('non so che deve fare questo tasto :P')">%</button>
-            </td>
-            <td>
-                <button class="op" onclick="add_operator('/')">&divide;</button>
-            </td>
-        </tr>
-        <tr>
+        <tr class="basic">
             <td>
                 <button class="num" onclick="add_value(7)">7</button>
             </td>
@@ -40,10 +26,14 @@
                 <button class="num" onclick="add_value(9)">9</button>
             </td>
             <td>
-                <button class="op" onclick="add_operator('*')">&times;</button>
+                <button class="canc" onclick="reset()">C</button>
             </td>
+            <td>
+                <button class="canc" onclick="del()">&#x25C0;</button>
+            </td>
+            
         </tr>
-        <tr>
+        <tr class="basic">
             <td>
                 <button class="num" onclick="add_value(4)">4</button>
             </td>
@@ -54,10 +44,13 @@
                 <button class="num" onclick="add_value(6)">6</button>
             </td>
             <td>
-                <button class="op" onclick="add_operator('-')">-</button>
+                <button class="op" onclick="add_operator('*')">&times;</button>
+            </td>
+            <td>
+                <button class="op" onclick="add_operator('/')">&divide;</button>
             </td>
         </tr>
-        <tr>
+        <tr class="basic">
             <td>
                 <button class="num" onclick="add_value(1)">1</button>
             </td>
@@ -70,8 +63,14 @@
             <td>
                 <button class="op" onclick="add_operator('+')">+</button>
             </td>
+            <td>
+                <button class="op" onclick="add_operator('-')">-</button>
+            </td>
         </tr>
-        <tr>
+        <tr class="basic">
+            <td>
+                <button class="num" onclick="add_value('Ans')">Ans</button>
+            </td>
             <td>
                 <button class="num" onclick="add_value(0)">0</button>
             </td>
