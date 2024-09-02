@@ -189,3 +189,9 @@ function import_whatsapp() {
     let messages = text.matchAll(/\[.*?\] (.*?): ((?:.|\n)*?)(?=(?=\n\[.*?\] (.*?):)|$)/g)
     generate_messages(messages)
 }
+
+function import_generic() {
+    let text = messages_textarea.value
+    let messages = text.matchAll(/^()(.*?)$/gm)
+    generate_messages(messages)
+}
