@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Objection.lol Base Generator</title>
+    <script src="objectionlolbase.js"></script>
+    <style>
+        body {
+            zoom: 1.5
+        }
+    </style>
+</head>
+
+<body>
+    <template id="message_template">
+        <div>
+            <div style="display: flex; align-items: center ;">
+                <div class="message">
+                    <!-- <input type="text" name="author" id="author" size="10"> -->
+                    <select name="author" id="author"></select>
+                    <br>
+                    <textarea style="resize: none;" name="text" id="text" cols="20" rows="5"></textarea>
+                </div>
+                <button onclick="this.parentElement.parentElement.remove()">Delete</button>
+            </div>
+            <button style="margin: auto; display: block;" onclick="new_message(this)">Add new</button>
+        </div>
+    </template>
+    <template id="character_template">
+        <div>
+            <input type="text" name="name" id="name" size="10" onchange="on_character_name_changed(this.value, this.parentElement)">
+            <select name="character" id="character">
+                <option value="0">None</option>
+                <optgroup label="Defense">
+                    <option value="1">Phoenix Wright</option>
+                    <option value="15">Mia Fey</option>
+                    <option value="60">Apollo Justice</option>
+                    <option value="690">Miles Edgeworth (defense)</option>
+                </optgroup>
+                <optgroup label="Prosecution">
+                    <option value="5">Miles Edgeworth</option>
+                    <option value="10">Miles Edgeworth (young)</option>
+                    <option value="19">Winston Payne</option>
+                    <option value="21">Franziska von Karma</option>
+                    <option value="27">Manfred von Karma</option>
+                    <option value="48">Godot</option>
+                    <option value="64">Klavier Gavin</option>
+                    <option value="173">Godot</option>
+                    <option value="438">Winston Payne (old)</option>
+                    <option value="564">Winston Payne (young)</option>
+                </optgroup>
+                <optgroup label="Counsel">
+                    <option value="45">Diego Armando</option>
+                    <option value="102">Maya Fey</option>
+                    <option value="121">Mia Fey</option>
+                    <option value="353">Ema Skye</option>
+                    <option value="359">Marvin Grossberg</option>
+                    <option value="369">Maggey Byrde</option>
+                    <option value="434">Phoenix Wright (old)</option>
+                    <option value="458">Kristoph Gavin</option>
+                    <option value="560">Trucy Wright</option>
+                    <option value="725">Mia (as Maya)</option>
+                </optgroup>
+                <optgroup label="Witness">
+                    <option value="71">Frank Sahwit</option>
+                    <option value="77">Maya Fey</option>
+                    <option value="92">Damon Gant</option>
+                    <option value="107">Redd White</option>
+                    <option value="113">Lotta Hart</option>
+                    <option value="130">Dick Gumshoe</option>
+                    <option value="142">Ema Skye</option>
+                    <option value="152">Jake Marshall</option>
+                    <option value="164">Dahlia Hawthorne</option>
+                    <option value="194">Lana Skye</option>
+                    <option value="206">Larry Butz</option>
+                    <option value="220">Miles Edgeworth</option>
+                    <option value="228">Wendy Oldbag</option>
+                    <option value="234">Luke Atmey</option>
+                    <option value="245">Ini Miney</option>
+                    <option value="253">Matt Engarde</option>
+                    <option value="261">Iris</option>
+                    <option value="276">Cody Hackins</option>
+                    <option value="285">Furio Tigre</option>
+                    <option value="294">Regina Berry</option>
+                    <option value="302">Polly</option>
+                    <option value="303">Phoenix Wright</option>
+                    <option value="313">April May</option>
+                    <option value="322">Acro</option>
+                    <option value="327">Shelly de Killer (radio)</option>
+                    <option value="331">Ron DeLite</option>
+                    <option value="338">Y61">Phoenix Wright (old)</option>
+                    <option value="469">Pearl Fey</option>
+                    <option value="482">Godot</option>
+                    <option value="489">Jean Armstrong</option>
+                    <option value="496">Ema Skye</option>
+                    <option value="508">Kristoph Gavin (with badge)</option>
+                    <option value="523">Kristoph Gavin</option>
+                    <option value="541">Mia Fey</option>
+                    <option value="544">Morgan Fey</option>
+                    <option value="548">BellBoy</option>
+                    <option value="550">Adrian Andrews</option>
+                    <option value="572">Moe</option>
+                    <option value="579">Maximillion Galactica</option>
+                    <option value="584">Will Powers</option>
+                    <option value="589">Trucy Wright</option>
+                    <option value="612">Larry Butz (guard)</option>
+                    <option value="617">Shelly de Killer</option>
+                    <option value="620">Terry Fawles</option>
+                    <option value="630">Penny Nichols</option>
+                    <option value="633">Benjamin & Trilo</option>
+                    <option value="641">Bikini</option>
+                    <option value="649">Desirée DeLite</option>
+                    <option value="653">Diego Armando</option>
+                    <option value="655">Drew Misham</option>
+                    <option value="659">Guy Eldoon</option>
+                    <option value="668">Marvin Grossberg</option>
+                    <option value="672">Director Hotti</option>
+                    <option value="675">Lisa Basil</option>
+                    <option value="678">Elise Deauxnim</option>
+                    <option value="680">Viola Cadaverini</option>
+                    <option value="702">Klavier Gavin</option>
+                    <option value="708">Spark Brushel</option>
+                    <option value="712">Wocky Kitaki</option>
+                    <option value="722">Winfred Kitaki</option>
+                    <option value="730">Mia (as Maya)</option>
+                    <option value="734">Daryan Crescend</option>
+                </optgroup>
+                <optgroup label="Judge">
+                    <option value="30">The Judge</option>
+                    <option value="125">Judge's Brother</option>
+                    <option value="606">The Judge (AJ)</option>
+                </optgroup>
+                <optgroup label="Gallery">
+                    <option value="215">Gallery</option>
+                    <option value="746">Gallery (AJ)</option>
+                </optgroup>
+            </select>
+            <button onclick="delete_character(this)">Delete</button>
+        </div>
+    </template>
+    <h1>Epic objection.lol base generator!!</h1>
+    <div id="characters">
+    </div>
+    <button onclick="new_character('New', true)">New character</button>
+    <div style="display: flex; flex-wrap: wrap;">
+        <textarea name="messages_textarea" id="messages_textarea" cols="50" rows="20"></textarea>
+        <div style="overflow-y: auto; height: 500px; overflow-x: hidden;" id="generated_messages">
+            <div>
+                <button style="margin: auto; display: block;" onclick="new_message(this)">Add new</button>
+            </div>
+        </div>
+    </div>
+    <button onclick="import_telegram()">Import Telegram</button>
+    <button onclick="import_discord()">Import Discord</button>
+    <button onclick="import_whatsapp()">Import Whatsapp</button>
+    <br>
+    <button onclick="download_output()">Download output file</button>
+    <a id="download_file" download="output.objection"></a>
+</body>
+
+</html>
