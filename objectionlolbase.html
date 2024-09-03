@@ -29,7 +29,9 @@
                     <textarea style="resize: none;" name="text" id="text" cols="20" rows="5"></textarea>
                 </div>
                 <div style="display: flex; flex-direction: column;">
+                    <button onclick="move_up(this)">Move Up</button>
                     <button onclick="this.closest('.message_container').parentElement.remove()">Delete</button>
+                    <button onclick="move_down(this)">Move Down</button>
                 </div>
             </div> 
             <button style="margin: auto; display: block;" onclick="new_message(this)">Add new</button>

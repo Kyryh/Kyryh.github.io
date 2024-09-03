@@ -150,6 +150,22 @@ function update_messages_author_options(old_name = null) {
     }
 }
 
+function move_up(button) {
+    let message = button.closest(".message_container").parentElement
+    if (message.previousElementSibling.previousElementSibling !== null)
+        move(message, message.previousElementSibling)
+}
+
+function move_down(button) {
+    let message = button.closest(".message_container").parentElement
+    if (message.nextElementSibling !== null)
+        move(message, message.nextElementSibling.nextElementSibling)
+}
+
+function move(message, beforeNode) {
+    message.parentElement.insertBefore(message, beforeNode)
+}
+
 function download_output() {
     let output = structuredClone(base_case_json)
     let messages = generated_messages.getElementsByClassName("message")
