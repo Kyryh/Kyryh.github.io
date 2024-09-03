@@ -173,25 +173,25 @@ function import_telegram() {
     let text = messages_textarea.value
     let messages = [...text.matchAll(/(.*?), \[.*?\]\n((?:.|\n)*?)(?=(?=\n\n.*?\[.*?\]\n)|$)/g)]
     if (messages.length == 0) {
-        messages = text.matchAll(/(.*?):\n((?:.|\n)*?)(?=(?=\n\n.*?:\n)|$)/g)
+        messages = [...text.matchAll(/(.*?):\n((?:.|\n)*?)(?=(?=\n\n.*?:\n)|$)/g)]
     }
     generate_messages(messages)
 }
 
 function import_discord() {
     let text = messages_textarea.value
-    let messages = text.matchAll(/(.*?) — .*?\n((?:.|\n)*?)(?=(?=\n.*? — .*?\n)|$)/g)
+    let messages = [...text.matchAll(/(.*?) — .*?\n((?:.|\n)*?)(?=(?=\n.*? — .*?\n)|$)/g)]
     generate_messages(messages)
 }
 
 function import_whatsapp() {
     let text = messages_textarea.value
-    let messages = text.matchAll(/\[.*?\] (.*?): ((?:.|\n)*?)(?=(?=\n\[.*?\] (.*?):)|$)/g)
+    let messages = [...text.matchAll(/\[.*?\] (.*?): ((?:.|\n)*?)(?=(?=\n\[.*?\] (.*?):)|$)/g)]
     generate_messages(messages)
 }
 
 function import_generic() {
     let text = messages_textarea.value
-    let messages = text.matchAll(/^()(.*?)$/gm)
+    let messages = [...text.matchAll(/^()(.*?)$/gm)]
     generate_messages(messages)
 }
