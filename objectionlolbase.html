@@ -24,9 +24,9 @@
             <div class="message_container">
                 <div class="message">
                     <!-- <input type="text" name="author" id="author" size="10"> -->
-                    <select name="author" id="author"></select>
+                    <select name="author"></select>
                     <br>
-                    <textarea style="resize: none;" name="text" id="text" cols="20" rows="5"></textarea>
+                    <textarea style="resize: none;" name="text" cols="20" rows="5"></textarea>
                 </div>
                 <div style="display: flex; flex-direction: column;">
                     <button onclick="move_up(this)">Move Up</button>
@@ -39,8 +39,8 @@
     </template>
     <template id="character_template">
         <div>
-            <input type="text" name="name" id="name" size="10" onchange="on_character_name_changed(this.value, this.parentElement)">
-            <select name="character" id="character">
+            <input type="text" name="name" size="10" onchange="on_character_name_changed(this.value, this.parentElement)">
+            <select name="character">
                 <option value="0">None</option>
                 <optgroup label="Defense">
                     <option value="1">Phoenix Wright</option>
