@@ -8,6 +8,10 @@
         body {
             zoom: 1.5
         }
+        .message_container {
+            display: flex;
+            align-items: center;
+        }
     </style>
     <meta http-equiv='cache-control' content='no-cache'> 
     <meta http-equiv='expires' content='0'> 
@@ -17,15 +21,17 @@
 <body>
     <template id="message_template">
         <div>
-            <div style="display: flex; align-items: center ;">
+            <div class="message_container">
                 <div class="message">
                     <!-- <input type="text" name="author" id="author" size="10"> -->
                     <select name="author" id="author"></select>
                     <br>
                     <textarea style="resize: none;" name="text" id="text" cols="20" rows="5"></textarea>
                 </div>
-                <button onclick="this.parentElement.parentElement.remove()">Delete</button>
-            </div>
+                <div style="display: flex; flex-direction: column;">
+                    <button onclick="this.closest('.message_container').parentElement.remove()">Delete</button>
+                </div>
+            </div> 
             <button style="margin: auto; display: block;" onclick="new_message(this)">Add new</button>
         </div>
     </template>
