@@ -39,7 +39,7 @@
     </template>
     <template id="character_template">
         <div>
-            <input type="text" name="name" size="10" onchange="on_character_name_changed(this.value, this.parentElement)">
+            <input type="text" name="name" size="10" onchange="on_character_name_changed(this.value, this.parentElement)" autocomplete="off">
             <select name="character">
                 <option value="0">None</option>
                 <optgroup label="Defense">
