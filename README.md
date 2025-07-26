@@ -1,1 +1,0 @@
-# kyryh.github.io
